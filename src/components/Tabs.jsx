@@ -1,6 +1,6 @@
 export default function Tabs() {
   return (
-    <ul className="flex flex-wrap -mb-px text-sm font-medium">
+    <ul className="flex flex-wrap -mb-px text-sm font-medium text-gray-500">
       <li className="mr-2">
         <a
           href="#"

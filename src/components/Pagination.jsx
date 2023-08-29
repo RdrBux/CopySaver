@@ -6,7 +6,7 @@ export default function Pagination() {
   const { page, nextPage, prevPage, dataLength } = useContext(DataContext);
 
   return (
-    <div className="flex justify-between items-center mt-2">
+    <div className="absolute bottom-3 left-4 right-4 flex justify-between items-center">
       <span className="text-sm text-gray-500">
         Showing{' '}
         <span className="font-semibold text-gray-900">

@@ -18,9 +18,9 @@ function App() {
   const { data } = useContext(DataContext);
 
   return (
-    <div className="w-[650px] px-4 py-3 bg-white rounded shadow">
+    <div className="w-[650px] relative h-[572px] px-4 py-3 bg-white rounded shadow">
       <header className="flex items-center justify-between mb-1">
-        <h1 className="text-2xl font-extrabold leading-none tracking-tight text-gray-900">
+        <h1 className="text-2xl font-bold leading-none tracking-tight text-gray-900">
           CopySaver
         </h1>
         <div>
