@@ -1,16 +1,13 @@
 {
+  "manifest_version": 3,
   "name": "CopySaver",
-  "description": "Basic Chrome Extension",
-  "version": "1.0",
-  "manifest_version": 2,
-  "browser_action": {
-    "default_popup": "index.html",
-    "default_title": "CopySaver"
+  "version": "1.0.1",
+  "action": {
+      "default_title": "CopySaver",
+      "default_popup": "index.html"
   },
-  "icons": {
-    "16": "react.png",
-    "48": "react.png",
-    "128": "react.png"
-  },
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+  "description": "CopySaver: Your clipboard's guardian angel. Effortlessly save and organize copied content and never lose valuable information again. Streamline your workflow and boost productivity!",
+  "permissions": [
+    "storage", "scripting", "clipboardRead", "clipboardWrite"
+  ]
 }

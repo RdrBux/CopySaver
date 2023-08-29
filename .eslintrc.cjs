@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  env: { browser: true, es2020: true },
+  env: { browser: true, es2020: true, webextensions: true },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -16,5 +16,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    // disable proptypes
+    'react/prop-types': 'off',
   },
-}
+};

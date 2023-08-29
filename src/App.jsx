@@ -1,14 +1,25 @@
+/* "content_scripts": [
+  {
+    "matches": ["<all_urls>"],
+    "js": ["content.js"]
+  }
+] */
+
+import { useContext } from 'react';
 import Menu from './components/Menu';
 import Pagination from './components/Pagination';
 import Search from './components/Search';
 import Table from './components/Table';
 import Tabs from './components/Tabs';
 import Toggler from './components/Toggler';
+import { DataContext } from './context/data';
 
 function App() {
+  const { data } = useContext(DataContext);
+
   return (
-    <div className="w-[650px] px-4 py-3 m-10 bg-white rounded shadow">
-      <header className="flex items-center justify-between mb-2">
+    <div className="w-[650px] px-4 py-3 bg-white rounded shadow">
+      <header className="flex items-center justify-between mb-1">
         <h1 className="text-2xl font-extrabold leading-none tracking-tight text-gray-900">
           CopySaver
         </h1>

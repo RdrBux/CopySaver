@@ -1,6 +1,14 @@
+import { useContext } from 'react';
 import TableRow from './TableRow';
+import { DataContext } from '../context/data';
 
 export default function Table() {
+  const { data } = useContext(DataContext);
+
+  const rows = data.map((row) => {
+    return <TableRow key={row.id} row={row} />;
+  });
+
   return (
     <table className="w-full text-sm text-left text-gray-500">
       <thead className="text-xs text-gray-700 uppercase bg-gray-50">
@@ -20,18 +28,7 @@ export default function Table() {
         </tr>
       </thead>
 
-      <tbody>
-        <TableRow />
-        <TableRow />
-        <TableRow />
-        <TableRow />
-        <TableRow />
-        <TableRow />
-        <TableRow />
-        <TableRow />
-        <TableRow />
-        <TableRow />
-      </tbody>
+      <tbody>{rows}</tbody>
     </table>
   );
 }
