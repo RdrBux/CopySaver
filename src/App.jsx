@@ -2,7 +2,7 @@
   {
     "matches": ["<all_urls>"],
     "js": ["content.js"]
-  }
+  }-
 ] */
 
 import { useContext } from 'react';
