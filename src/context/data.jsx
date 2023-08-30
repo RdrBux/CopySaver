@@ -10,9 +10,18 @@ export const DataProvider = ({ children }) => {
   const [data, setData] = useState(mockData);
   const [page, setPage] = useState(1);
   const [selectedTab, setSelectedTab] = useState(TABS.ALL);
+  const [textFilter, setTextFilter] = useState('');
+
+  const textFilteredData = data.filter(
+    (row) =>
+      row.content.toLowerCase().includes(textFilter) ||
+      row.tags.toLowerCase().includes(textFilter)
+  );
 
   const tabFilteredData =
-    selectedTab === TABS.FAV ? data.filter((row) => row.isFav) : data;
+    selectedTab === TABS.FAV
+      ? textFilteredData.filter((row) => row.isFav)
+      : textFilteredData;
 
   const paginatedData = tabFilteredData.slice((page - 1) * 10, page * 10);
 
@@ -43,6 +52,10 @@ export const DataProvider = ({ children }) => {
     setSelectedTab(TABS.FAV);
   }
 
+  function changeTextFilter(e) {
+    setTextFilter(e.target.value.toLowerCase());
+  }
+
   return (
     <DataContext.Provider
       value={{
@@ -51,10 +64,13 @@ export const DataProvider = ({ children }) => {
         nextPage,
         prevPage,
         dataLength: tabFilteredData.length,
+        allDataLength: data.length,
         setFavorite,
         showAll,
         showFav,
         selectedTab,
+        textFilter,
+        changeTextFilter,
       }}
     >
       {children}

@@ -19,7 +19,7 @@ export default function Table() {
           <th scope="col" className="px-5 py-3 w-[220px]">
             Content
           </th>
-          <th scope="col" className="px-5 py-3 w-[150px]">
+          <th scope="col" className="px-5 py-3 w-[170px]">
             Tags
           </th>
           <th scope="col" className="px-5 py-3 w-[100px]">

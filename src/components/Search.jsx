@@ -1,6 +1,10 @@
+import { useContext } from 'react';
+import { DataContext } from '../context/data';
 import { Magnifier } from './Icons';
 
 export default function Search() {
+  const { textFilter, changeTextFilter } = useContext(DataContext);
+
   return (
     <div className="-mt-1">
       <label htmlFor="table-search" className="sr-only">
@@ -13,6 +17,8 @@ export default function Search() {
         <input
           type="text"
           id="table-search"
+          value={textFilter}
+          onChange={changeTextFilter}
           className="block p-1.5 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-64 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
           placeholder="Search for content or tags..."
         />

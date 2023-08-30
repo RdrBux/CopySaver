@@ -15,13 +15,13 @@ import Toggler from './components/Toggler';
 import { DataContext } from './context/data';
 
 function App() {
-  const { dataLength } = useContext(DataContext);
+  const { allDataLength } = useContext(DataContext);
 
   return (
     <div
       className={`${
-        dataLength > 10 ? 'h-[572px]' : ''
-      } w-[650px] relative px-4 py-3 bg-white rounded shadow`}
+        allDataLength > 10 ? 'h-[572px]' : ''
+      } w-[650px] relative px-4 py-3 bg-white shadow`}
     >
       <header className="flex items-center justify-between mb-1">
         <h1 className="text-2xl font-bold leading-none tracking-tight text-gray-900">

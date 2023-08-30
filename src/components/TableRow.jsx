@@ -11,12 +11,12 @@ export default function TableRow({ row }) {
       <td className="px-5 py-2 font-medium text-gray-900 whitespace-nowrap">
         {date}
       </td>
-      <td className="px-5 py-2 truncate max-w-[216px]">{content}</td>
+      <td className="px-5 py-2 truncate">{content}</td>
       <td className="px-5 py-2 whitespace-nowrap">
         {tags ? (
           tags
         ) : (
-          <button className="text-blue-600 font-medium truncate max-w-[184px]">
+          <button className="text-blue-600 font-medium truncate">
             click to add tags
           </button>
         )}
