@@ -10,19 +10,19 @@ export default function Table() {
   });
 
   return (
-    <table className="w-full text-sm text-left text-gray-500">
+    <table className="text-sm text-left text-gray-500 table-fixed w-[620px]">
       <thead className="text-xs text-gray-700 uppercase bg-gray-50">
         <tr>
-          <th scope="col" className="px-6 py-3">
+          <th scope="col" className="px-5 py-3 w-[130px]">
             Date
           </th>
-          <th scope="col" className="px-6 py-3">
+          <th scope="col" className="px-5 py-3 w-[220px]">
             Content
           </th>
-          <th scope="col" className="px-6 py-3">
+          <th scope="col" className="px-5 py-3 w-[150px]">
             Tags
           </th>
-          <th scope="col" className="px-6 py-3">
+          <th scope="col" className="px-5 py-3 w-[100px]">
             Actions
           </th>
         </tr>
