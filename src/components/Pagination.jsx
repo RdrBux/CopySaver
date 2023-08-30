@@ -5,6 +5,8 @@ import { DataContext } from '../context/data';
 export default function Pagination() {
   const { page, nextPage, prevPage, dataLength } = useContext(DataContext);
 
+  if (dataLength <= 10) return;
+
   return (
     <div className="absolute bottom-3 left-4 right-4 flex justify-between items-center">
       <span className="text-sm text-gray-500">

@@ -41,7 +41,7 @@ export const data = [
     tags: '',
     isFav: false,
   },
-  {
+  /* {
     id: 7,
     date: '2023-08-01',
     content: 'Content 1',
@@ -82,5 +82,5 @@ export const data = [
     content: 'Content 3',
     tags: '',
     isFav: false,
-  },
+  }, */
 ];
