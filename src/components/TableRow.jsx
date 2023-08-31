@@ -81,12 +81,14 @@ export default function TableRow({ row }) {
                   click to add a title
                 </span>
               )}
-              <div
-                title="Click to edit"
-                className="hidden group-hover:block absolute right-0 top-0 bg-white"
-              >
-                {Pencil}
-              </div>
+              {title && (
+                <div
+                  title="Click to edit"
+                  className="hidden group-hover:block absolute right-0 top-0 bg-white"
+                >
+                  {Pencil}
+                </div>
+              )}
             </button>
           </TableDiv>
         </td>
