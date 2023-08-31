@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Cog } from './Icons';
+import { DataContext } from '../context/data';
 
 export default function Menu() {
+  const { removeAll } = useContext(DataContext);
   const [menuVisible, setMenuVisible] = useState(false);
   const menu = useRef();
 
@@ -18,6 +20,11 @@ export default function Menu() {
 
     return () => document.removeEventListener('click', checkClickOutside);
   }, [menuVisible]);
+
+  function handleRemoveAll() {
+    removeAll();
+    setMenuVisible(false);
+  }
 
   return (
     <div ref={menu}>
@@ -40,11 +47,6 @@ export default function Menu() {
         >
           <li>
             <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-              Dashboard
-            </a>
-          </li>
-          <li>
-            <a href="#" className="block px-4 py-2 hover:bg-gray-100">
               Settings
             </a>
           </li>
@@ -53,13 +55,23 @@ export default function Menu() {
               Earnings
             </a>
           </li>
+          <li>
+            <button
+              onClick={handleRemoveAll}
+              className="block px-4 py-2 hover:bg-gray-100 text-red-700 w-full text-left"
+            >
+              Delete all
+            </button>
+          </li>
         </ul>
         <div className="py-2">
           <a
-            href="#"
+            href="http://google.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
           >
-            Separated link
+            Leave a review
           </a>
         </div>
       </div>

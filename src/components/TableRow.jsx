@@ -1,7 +1,8 @@
-import { useContext, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import {
   ClipboardCopied,
   ClipboardIcon,
+  Pencil,
   Star,
   StarFilled,
   Trash,
@@ -9,10 +10,12 @@ import {
 import { DataContext } from '../context/data';
 
 export default function TableRow({ row }) {
-  const { setFavorite, removeOne } = useContext(DataContext);
+  const { setFavorite, removeOne, editTitle } = useContext(DataContext);
   const { id, content, title, date, isFav } = row;
   const [copied, setCopied] = useState(false);
   const [removing, setRemoving] = useState(false);
+  const [changingTitle, setChangingTitle] = useState(false);
+  const inputTitle = useRef();
 
   function handleCopy() {
     navigator.clipboard.writeText(content);
@@ -27,28 +30,68 @@ export default function TableRow({ row }) {
     setTimeout(() => {
       setRemoving(false);
       removeOne(id);
-    }, 100);
+    }, 200);
+  }
+
+  function handleTitleChange(e) {
+    e.preventDefault();
+    editTitle(id, inputTitle.current.value);
+    setChangingTitle(false);
   }
 
   return (
-    <tr className="bg-white border-b">
+    <tr className={`${removing ? 'border-transparent' : ''} bg-white border-b`}>
       <td className="font-medium text-gray-900 px-5 whitespace-nowrap">
         <TableDiv removing={removing}>{date}</TableDiv>
       </td>
+
       <td className="px-5" title={content}>
         <TableDiv removing={removing}>{content}</TableDiv>
       </td>
-      <td className="whitespace-nowrap px-5" title={title}>
-        <TableDiv removing={removing}>
-          {title ? (
-            title
-          ) : (
-            <button className="text-blue-600 font-medium">
-              click to add a title
+
+      {changingTitle ? (
+        <td>
+          <form onSubmit={handleTitleChange} className="px-2">
+            <label htmlFor={id} className="sr-only">
+              Title
+            </label>
+            <input
+              ref={inputTitle}
+              autoFocus
+              onBlur={handleTitleChange}
+              type="text"
+              id={id}
+              defaultValue={title}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2.5 py-1.5"
+              placeholder=""
+            />
+          </form>
+        </td>
+      ) : (
+        <td className="whitespace-nowrap px-5" title={title}>
+          <TableDiv removing={removing}>
+            <button
+              className="relative group w-full py-1 text-left"
+              onClick={() => setChangingTitle(true)}
+            >
+              {title ? (
+                title
+              ) : (
+                <span className="text-blue-600 font-medium">
+                  click to add a title
+                </span>
+              )}
+              <div
+                title="Click to edit"
+                className="hidden group-hover:block absolute right-0 top-0 bg-white"
+              >
+                {Pencil}
+              </div>
             </button>
-          )}
-        </TableDiv>
-      </td>
+          </TableDiv>
+        </td>
+      )}
+
       <td className="flex justify-center items-center h-full">
         <TableDiv removing={removing}>
           <button
@@ -83,7 +126,7 @@ function TableDiv({ children, removing }) {
     <div
       className={`${
         removing ? 'max-h-0' : 'max-h-[40px]'
-      } overflow-y-hidden transition-all duration-100`}
+      } overflow-y-hidden transition-all duration-200`}
     >
       <div className="py-1 truncate">{children}</div>
     </div>

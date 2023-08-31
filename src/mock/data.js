@@ -3,7 +3,7 @@ export const data = [
     id: 1,
     date: '2023-08-01',
     content: 'Content1asdfs dfdsfsd fsdfdssd fsdfdsffd',
-    title: '',
+    title: 'something',
     isFav: false,
   },
   {

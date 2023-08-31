@@ -49,6 +49,20 @@ export const DataProvider = ({ children }) => {
     setData(newData);
   }
 
+  function editTitle(id, title) {
+    const newData = data.map((row) => {
+      if (row.id === id) {
+        return { ...row, title };
+      }
+      return row;
+    });
+    setData(newData);
+  }
+
+  function removeAll() {
+    setData([]);
+  }
+
   function showAll() {
     setSelectedTab(TABS.ALL);
   }
@@ -77,6 +91,8 @@ export const DataProvider = ({ children }) => {
         textFilter,
         changeTextFilter,
         removeOne,
+        editTitle,
+        removeAll,
       }}
     >
       {children}
