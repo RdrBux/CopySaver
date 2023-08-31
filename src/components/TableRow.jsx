@@ -10,7 +10,7 @@ import { DataContext } from '../context/data';
 
 export default function TableRow({ row }) {
   const { setFavorite, removeOne } = useContext(DataContext);
-  const { id, content, tags, date, isFav } = row;
+  const { id, content, title, date, isFav } = row;
   const [copied, setCopied] = useState(false);
   const [removing, setRemoving] = useState(false);
 
@@ -38,13 +38,13 @@ export default function TableRow({ row }) {
       <td className="px-5" title={content}>
         <TableDiv removing={removing}>{content}</TableDiv>
       </td>
-      <td className="whitespace-nowrap px-5" title={tags}>
+      <td className="whitespace-nowrap px-5" title={title}>
         <TableDiv removing={removing}>
-          {tags ? (
-            tags
+          {title ? (
+            title
           ) : (
             <button className="text-blue-600 font-medium">
-              click to add tags
+              click to add a title
             </button>
           )}
         </TableDiv>

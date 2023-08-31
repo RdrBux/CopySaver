@@ -19,8 +19,8 @@ export default function Search() {
           id="table-search"
           value={textFilter}
           onChange={changeTextFilter}
-          className="block p-1.5 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-64 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-          placeholder="Search for content or tags..."
+          className="block p-1.5 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-64 bg-gray-50 focus:ring-4 outline-none focus:ring-blue-300"
+          placeholder="Search for content or title..."
         />
       </div>
     </div>

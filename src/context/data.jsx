@@ -15,7 +15,7 @@ export const DataProvider = ({ children }) => {
   const textFilteredData = data.filter(
     (row) =>
       row.content.toLowerCase().includes(textFilter) ||
-      row.tags.toLowerCase().includes(textFilter)
+      row.title.toLowerCase().includes(textFilter)
   );
 
   const tabFilteredData =

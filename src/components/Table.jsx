@@ -20,7 +20,7 @@ export default function Table() {
             Content
           </th>
           <th scope="col" className="px-5 py-3 w-[170px]">
-            Tags
+            Title
           </th>
           <th scope="col" className="px-5 py-3 w-[100px]">
             Actions
