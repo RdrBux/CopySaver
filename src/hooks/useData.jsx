@@ -4,16 +4,18 @@ import { mockData } from '../mock/data';
 export function useData() {
   const [data, setData] = useState([]);
 
-  /* useEffect(() => {
-    const fetchData = () => {
-      chrome.storage.local.get(['data'], function (result) {
-        console.log(result.data);
-        setData(result.data);
-      });
-    };
+  useEffect(() => {
+    console.log('getting data');
+    chrome.storage.local.get(['data'], function (result) {
+      setData(result.data);
+    });
 
-    fetchData();
-  }, []); */
+    chrome.storage.onChanged.addListener((changes, namespace) => {
+      if ('data' in changes) {
+        setData(changes.data.newValue);
+      }
+    });
+  }, []);
 
-  return { data: mockData };
+  return { data };
 }

@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react';
 import { TABS } from '../utils/constants';
 import { useData } from '../hooks/useData';
+import { changeFavoriteStatus, removeData } from '../services/dataServices';
 
 export const DataContext = createContext();
 
@@ -34,32 +35,21 @@ export const DataProvider = ({ children }) => {
   }
 
   function setFavorite(id) {
-    const newData = data.map((row) => {
-      if (row.id === id) {
-        return { ...row, isFav: !row.isFav };
-      }
-      return row;
-    });
-    setData(newData);
+    changeFavoriteStatus(id);
   }
 
   function removeOne(id) {
-    const newData = data.filter((row) => row.id !== id);
-    setData(newData);
+    removeData(id);
   }
 
   function editTitle(id, title) {
-    const newData = data.map((row) => {
+    /* const newData = data.map((row) => {
       if (row.id === id) {
         return { ...row, title };
       }
       return row;
     });
-    setData(newData);
-  }
-
-  function removeAll() {
-    setData([]);
+    setData(newData); */
   }
 
   function showAll() {
@@ -91,7 +81,6 @@ export const DataProvider = ({ children }) => {
         changeTextFilter,
         removeOne,
         editTitle,
-        removeAll,
       }}
     >
       {children}

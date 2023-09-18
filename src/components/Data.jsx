@@ -10,7 +10,7 @@ export default function Data() {
   }, []);
 
   return (
-    <div className="absolute left-0 right-0 bottom-0 h-fit z-20 p-4 bg-red-200/90">
+    <div className="absolute text-xs left-0 right-0 bottom-0 h-fit z-20 p-4 bg-red-200/80">
       {data}
     </div>
   );

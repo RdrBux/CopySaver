@@ -17,7 +17,6 @@ function App() {
         allDataLength > 10 ? 'h-[588px]' : ''
       } w-[650px] relative px-4 py-3 bg-white shadow`}
     >
-      <Data />
       <header className="flex items-center justify-between mb-1">
         <h1 className="text-2xl font-bold leading-none tracking-tight text-gray-900">
           CopySaver
