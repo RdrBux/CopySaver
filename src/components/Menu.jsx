@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { Cog } from './Icons';
 import { DataContext } from '../context/data';
+import { clearData } from '../services/dataServices';
 
 export default function Menu() {
   const { removeAll } = useContext(DataContext);
@@ -22,7 +23,7 @@ export default function Menu() {
   }, [menuVisible]);
 
   function handleRemoveAll() {
-    removeAll();
+    clearData();
     setMenuVisible(false);
   }
 
@@ -58,7 +59,7 @@ export default function Menu() {
           <li>
             <button
               onClick={handleRemoveAll}
-              className="block px-4 py-2 hover:bg-gray-100 text-red-700 w-full text-left"
+              className="block px-4 py-2 font-medium hover:bg-gray-100 text-red-600 w-full text-left"
             >
               Delete all
             </button>

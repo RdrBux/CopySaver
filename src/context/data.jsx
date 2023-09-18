@@ -1,13 +1,12 @@
 import { createContext, useState } from 'react';
-/* import { useData } from '../hooks/useData'; */
-import { data as mockData } from '../mock/data';
 import { TABS } from '../utils/constants';
+import { useData } from '../hooks/useData';
 
 export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
   /* const { data } = useData(); */
-  const [data, setData] = useState(mockData);
+  const { data } = useData();
   const [page, setPage] = useState(1);
   const [selectedTab, setSelectedTab] = useState(TABS.ALL);
   const [textFilter, setTextFilter] = useState('');

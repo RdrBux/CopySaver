@@ -6,8 +6,17 @@
       "default_title": "CopySaver",
       "default_popup": "index.html"
   },
-  "description": "CopySaver: Your clipboard's guardian angel. Effortlessly save and organize copied content and never lose valuable information again. Streamline your workflow and boost productivity!",
+  "description": "CopySaver: Your clipboard's guardian angel. Effortlessly save and organize copied content and never lose valuable information again.",
   "permissions": [
-    "storage", "scripting", "clipboardRead", "clipboardWrite"
-  ]
+    "storage", "clipboardRead", "clipboardWrite", "scripting", "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["script.js"]
+		}
+	]
 }

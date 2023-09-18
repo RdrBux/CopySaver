@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react';
-import { data as mockData } from '../mock/data';
+import { mockData } from '../mock/data';
 
 export function useData() {
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const fetchedData = mockData;
-      setData(fetchedData);
+  /* useEffect(() => {
+    const fetchData = () => {
+      chrome.storage.local.get(['data'], function (result) {
+        console.log(result.data);
+        setData(result.data);
+      });
     };
 
     fetchData();
-  }, [data]);
+  }, []); */
 
-  return { data };
+  return { data: mockData };
 }

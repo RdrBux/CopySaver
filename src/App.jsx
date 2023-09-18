@@ -1,10 +1,3 @@
-/* "content_scripts": [
-  {
-    "matches": ["<all_urls>"],
-    "js": ["content.js"]
-  }-
-] */
-
 import { useContext } from 'react';
 import Menu from './components/Menu';
 import Pagination from './components/Pagination';
@@ -13,6 +6,7 @@ import Table from './components/Table';
 import Tabs from './components/Tabs';
 import Toggler from './components/Toggler';
 import { DataContext } from './context/data';
+import Data from './components/Data';
 
 function App() {
   const { allDataLength } = useContext(DataContext);
@@ -23,6 +17,7 @@ function App() {
         allDataLength > 10 ? 'h-[588px]' : ''
       } w-[650px] relative px-4 py-3 bg-white shadow`}
     >
+      <Data />
       <header className="flex items-center justify-between mb-1">
         <h1 className="text-2xl font-bold leading-none tracking-tight text-gray-900">
           CopySaver
