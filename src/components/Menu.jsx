@@ -2,9 +2,10 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { Cog } from './Icons';
 import { DataContext } from '../context/data';
 import { clearData } from '../services/dataServices';
+import { formatISO } from 'date-fns';
 
 export default function Menu() {
-  const { removeAll } = useContext(DataContext);
+  const { data, removeAll } = useContext(DataContext);
   const [menuVisible, setMenuVisible] = useState(false);
   const menu = useRef();
 
@@ -27,6 +28,26 @@ export default function Menu() {
     setMenuVisible(false);
   }
 
+  function saveDataToJSON() {
+    const dataBlob = new Blob([JSON.stringify(data, null, 2)], {
+      type: 'text/json;charset=utf-8',
+    });
+    const blobUrl = URL.createObjectURL(dataBlob);
+
+    const anchor = document.createElement('a');
+    anchor.href = blobUrl;
+    anchor.target = '_blank';
+    anchor.download = `CopySaver-${formatISO(new Date(), {
+      representation: 'date',
+    })}.json`;
+
+    // Auto click on a element, trigger the file download
+    anchor.click();
+
+    // This is required
+    URL.revokeObjectURL(blobUrl);
+  }
+
   return (
     <div ref={menu}>
       <button
@@ -47,13 +68,16 @@ export default function Menu() {
           aria-labelledby="dropdownMenuIconButton"
         >
           <li>
-            <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-              Settings
-            </a>
+            <button
+              onClick={saveDataToJSON}
+              className="block px-4 py-2 hover:bg-gray-100"
+            >
+              Save data to file
+            </button>
           </li>
           <li>
             <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-              Earnings
+              Import from file
             </a>
           </li>
           <li>
