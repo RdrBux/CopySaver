@@ -10,7 +10,6 @@ import {
 export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
-  /* const { data } = useData(); */
   const { data } = useData();
   const [page, setPage] = useState(1);
   const [selectedTab, setSelectedTab] = useState(TABS.ALL);

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { mockData } from '../mock/data';
 
 export function useData() {
   const [data, setData] = useState([]);
@@ -10,7 +9,7 @@ export function useData() {
       setData(result.data);
     });
 
-    chrome.storage.onChanged.addListener((changes, namespace) => {
+    chrome.storage.onChanged.addListener((changes) => {
       if ('data' in changes) {
         setData(changes.data.newValue);
       }

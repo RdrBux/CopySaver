@@ -6,7 +6,6 @@ import Table from './components/Table';
 import Tabs from './components/Tabs';
 import Toggler from './components/Toggler';
 import { DataContext } from './context/data';
-import Data from './components/Data';
 
 function App() {
   const { allDataLength } = useContext(DataContext);
