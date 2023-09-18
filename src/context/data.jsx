@@ -1,7 +1,11 @@
 import { createContext, useState } from 'react';
 import { TABS } from '../utils/constants';
 import { useData } from '../hooks/useData';
-import { changeFavoriteStatus, removeData } from '../services/dataServices';
+import {
+  changeFavoriteStatus,
+  changeTitle,
+  removeData,
+} from '../services/dataServices';
 
 export const DataContext = createContext();
 
@@ -43,13 +47,7 @@ export const DataProvider = ({ children }) => {
   }
 
   function editTitle(id, title) {
-    /* const newData = data.map((row) => {
-      if (row.id === id) {
-        return { ...row, title };
-      }
-      return row;
-    });
-    setData(newData); */
+    changeTitle(id, title);
   }
 
   function showAll() {

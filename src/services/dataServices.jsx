@@ -20,3 +20,15 @@ export function changeFavoriteStatus(id) {
     chrome.storage.local.set({ data: newData });
   });
 }
+
+export function changeTitle(id, title) {
+  chrome.storage.local.get(['data'], function (result) {
+    const newData = result.data.map((row) => {
+      if (row.id === id) {
+        return { ...row, title };
+      }
+      return row;
+    });
+    chrome.storage.local.set({ data: newData });
+  });
+}
