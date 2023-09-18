@@ -32,3 +32,37 @@ export function changeTitle(id, title) {
     chrome.storage.local.set({ data: newData });
   });
 }
+
+export function setNewData(newData) {
+  // Validate data
+  if (!Array.isArray(newData)) {
+    return;
+  }
+
+  const validData = newData.every((row) => {
+    return (
+      typeof row.id === 'string' &&
+      typeof row.content === 'string' &&
+      typeof row.title === 'string' &&
+      typeof row.isFav === 'boolean' &&
+      typeof row.date === 'string'
+    );
+  });
+
+  if (!validData) {
+    return;
+  }
+
+  // Format data
+  const formattedData = newData.map((row) => {
+    return {
+      id: row.id,
+      content: row.content,
+      isFav: row.isFav,
+      title: row.title,
+      date: new Date(row.date).toString(),
+    };
+  });
+
+  chrome.storage.local.set({ data: formattedData });
+}

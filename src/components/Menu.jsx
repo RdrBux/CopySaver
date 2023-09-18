@@ -1,13 +1,14 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { Cog } from './Icons';
 import { DataContext } from '../context/data';
-import { clearData } from '../services/dataServices';
+import { clearData, setNewData } from '../services/dataServices';
 import { formatISO } from 'date-fns';
 
 export default function Menu() {
-  const { data, removeAll } = useContext(DataContext);
+  const { data } = useContext(DataContext);
   const [menuVisible, setMenuVisible] = useState(false);
   const menu = useRef();
+  const file = useRef();
 
   useEffect(() => {
     function checkClickOutside(e) {
@@ -48,6 +49,18 @@ export default function Menu() {
     URL.revokeObjectURL(blobUrl);
   }
 
+  async function handleNewData(e) {
+    // Get object from input file
+    const newData = e.target.files[0];
+
+    if (!file) return;
+
+    const text = await newData.text();
+    const objectData = await JSON.parse(text);
+
+    setNewData(objectData);
+  }
+
   return (
     <div ref={menu}>
       <button
@@ -70,15 +83,25 @@ export default function Menu() {
           <li>
             <button
               onClick={saveDataToJSON}
-              className="block px-4 py-2 hover:bg-gray-100"
+              className="block px-4 py-2 hover:bg-gray-100 text-left w-full"
             >
-              Save data to file
+              Export to file
             </button>
           </li>
           <li>
-            <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+            <button
+              onClick={() => file.current.click()}
+              className="block px-4 py-2 hover:bg-gray-100 text-left w-full"
+            >
               Import from file
-            </a>
+            </button>
+            <input
+              type="file"
+              accept="application/JSON"
+              ref={file}
+              className="hidden"
+              onChange={handleNewData}
+            />
           </li>
           <li>
             <button
