@@ -8,6 +8,7 @@ import {
   Trash,
 } from './Icons';
 import { DataContext } from '../context/data';
+import { format, formatDistanceToNowStrict, isToday } from 'date-fns';
 
 export default function TableRow({ row }) {
   const { setFavorite, removeOne, editTitle } = useContext(DataContext);
@@ -16,6 +17,8 @@ export default function TableRow({ row }) {
   const [removing, setRemoving] = useState(false);
   const [changingTitle, setChangingTitle] = useState(false);
   const inputTitle = useRef();
+
+  const formattedDate = new Date(date);
 
   function handleCopy() {
     navigator.clipboard.writeText(content);
@@ -42,7 +45,11 @@ export default function TableRow({ row }) {
   return (
     <tr className={`${removing ? 'border-transparent' : ''} bg-white border-b`}>
       <td className="font-medium text-gray-900 px-5 whitespace-nowrap">
-        <TableDiv removing={removing}>{date}</TableDiv>
+        <TableDiv removing={removing}>
+          {isToday(formattedDate)
+            ? formatDistanceToNowStrict(formattedDate)
+            : format(formattedDate, 'PP')}
+        </TableDiv>
       </td>
 
       <td className="px-5" title={content}>

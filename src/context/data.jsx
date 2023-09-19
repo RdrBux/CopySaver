@@ -15,7 +15,9 @@ export const DataProvider = ({ children }) => {
   const [selectedTab, setSelectedTab] = useState(TABS.ALL);
   const [textFilter, setTextFilter] = useState('');
 
-  const textFilteredData = data.filter(
+  const sortedData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  const textFilteredData = sortedData.filter(
     (row) =>
       row.content.toLowerCase().includes(textFilter) ||
       row.title.toLowerCase().includes(textFilter)

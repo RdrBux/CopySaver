@@ -6,7 +6,7 @@ chrome.storage.onChanged.addListener((changes) => {
   chrome.action.setBadgeText({ text: dataLength.toString() });
 });
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((request) => {
   chrome.storage.local.get(['data'], function (result) {
     let data = Array.isArray(result.data) ? result.data : [];
     data = isInStore(data, request.text);
@@ -18,15 +18,15 @@ function isInStore(data, text) {
   const index = data.findIndex((item) => item.content === text);
 
   if (index === -1) {
-    data.push({
+    data.unshift({
       content: text,
-      date: new Date().toString(),
+      date: new Date().toISOString(),
       isFav: false,
       id: crypto.randomUUID(),
       title: '',
     });
   } else {
-    data[index] = { ...data[index], date: new Date() };
+    data[index] = { ...data[index], date: new Date().toISOString() };
   }
   return data;
 }

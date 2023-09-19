@@ -60,7 +60,7 @@ export function setNewData(newData) {
       content: row.content,
       isFav: row.isFav,
       title: row.title,
-      date: new Date(row.date).toString(),
+      date: new Date(row.date).toISOString(),
     };
   });
 
