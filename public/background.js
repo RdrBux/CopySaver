@@ -17,6 +17,14 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
+// Set badge every time chrome opens
+chrome.runtime.onStartup.addListener(() => {
+  chrome.storage.local.get(['data'], function (result) {
+    // Update badge
+    chrome.action.setBadgeText({ text: result.data.length.toString() ?? '0' });
+  });
+});
+
 // check for db updates to change badge
 chrome.storage.onChanged.addListener((changes) => {
   if (!changes.data) return;
