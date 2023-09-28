@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import { Cog } from './Icons';
+import { Hamburger } from './Icons';
 import { DataContext } from '../context/data';
 import { clearData, setNewData } from '../services/dataServices';
 import { formatISO } from 'date-fns';
@@ -68,7 +68,7 @@ export default function Menu() {
         className="inline-flex items-center p-1 text-sm font-medium text-center text-gray-700 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300"
         type="button"
       >
-        {Cog}
+        {Hamburger}
       </button>
 
       <div
