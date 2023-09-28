@@ -16,7 +16,10 @@ export default function Toggler() {
   }
 
   return (
-    <div className="grid place-content-center">
+    <div
+      title={`CopySaver is ${isActive ? 'ON' : 'OFF'}`}
+      className="grid place-content-center"
+    >
       <label className="relative inline-flex items-center cursor-pointer">
         <input
           type="checkbox"
