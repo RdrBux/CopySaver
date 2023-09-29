@@ -82,7 +82,7 @@ export default function TableRow({ row }) {
               onClick={() => setChangingTitle(true)}
             >
               {title ? (
-                title
+                <div className="truncate">{title}</div>
               ) : (
                 <span className="text-blue-600 font-medium">
                   click to add a title

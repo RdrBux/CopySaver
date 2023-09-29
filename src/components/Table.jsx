@@ -16,10 +16,10 @@ export default function Table() {
           <th scope="col" className="px-5 py-3 w-[130px]">
             Date
           </th>
-          <th scope="col" className="px-5 py-3 w-[220px]">
+          <th scope="col" className="px-5 py-3 w-[235px]">
             Content
           </th>
-          <th scope="col" className="px-5 py-3 w-[170px]">
+          <th scope="col" className="px-5 py-3 w-[155px]">
             Title
           </th>
           <th scope="col" className="px-5 py-3 w-[100px]">
