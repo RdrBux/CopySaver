@@ -17,7 +17,7 @@ export default function Toggler() {
 
   return (
     <div
-      title={`CopySaver is ${isActive ? 'ON' : 'OFF'}`}
+      title={`Copy Saver is ${isActive ? 'ON' : 'OFF'}`}
       className="grid place-content-center"
     >
       <label className="relative inline-flex items-center cursor-pointer">
