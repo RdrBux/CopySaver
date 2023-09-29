@@ -3,7 +3,6 @@ export function useData() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    console.log('getting data');
     chrome.storage.local.get(['data'], function (result) {
       setData(result.data);
     });
