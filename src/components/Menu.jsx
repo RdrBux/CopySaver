@@ -4,7 +4,7 @@ import { DataContext } from '../context/data';
 import { clearData, setNewData } from '../services/dataServices';
 import { formatISO } from 'date-fns';
 
-export default function Menu() {
+export default function Menu({ showModal }) {
   const { data } = useContext(DataContext);
   const [menuVisible, setMenuVisible] = useState(false);
   const menu = useRef();
@@ -25,7 +25,7 @@ export default function Menu() {
   }, [menuVisible]);
 
   function handleRemoveAll() {
-    clearData();
+    showModal();
     setMenuVisible(false);
   }
 

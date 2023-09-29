@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-
 export function useData() {
   const [data, setData] = useState([]);
 

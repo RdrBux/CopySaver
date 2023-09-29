@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import Menu from './components/Menu';
 import Pagination from './components/Pagination';
 import Search from './components/Search';
@@ -6,9 +6,12 @@ import Table from './components/Table';
 import Tabs from './components/Tabs';
 import Toggler from './components/Toggler';
 import { DataContext } from './context/data';
+import Modal from './components/Modal';
+import RemoveDataModal from './components/RemoveDataModal';
 
 function App() {
   const { allDataLength } = useContext(DataContext);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div
@@ -22,7 +25,7 @@ function App() {
         </h1>
         <div className="flex items-center gap-2">
           <Toggler />
-          <Menu />
+          <Menu showModal={() => setShowModal(true)} />
         </div>
       </header>
 
@@ -36,6 +39,9 @@ function App() {
 
         <Pagination />
       </main>
+      <Modal open={showModal} onClose={() => setShowModal(false)}>
+        <RemoveDataModal hideModal={() => setShowModal(false)} />
+      </Modal>
     </div>
   );
 }
