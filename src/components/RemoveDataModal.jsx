@@ -9,7 +9,7 @@ export default function RemoveDataModal({ hideModal }) {
   return (
     <div className="bg-white shadow w-[500px] p-6 rounded-lg flex flex-col gap-6">
       <h3 className="font-bold text-2xl text-gray-900">Delete all content?</h3>
-      <div className="text-gray-500">
+      <div className="text-gray-500 text-base">
         <p>
           You will lose all content collected in this extension. We can&apos;t
           recover them once you delete.
