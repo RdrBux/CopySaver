@@ -85,7 +85,7 @@ export default function Menu() {
               onClick={saveDataToJSON}
               className="block px-4 py-2 hover:bg-gray-100 text-left w-full"
             >
-              Export to file
+              Export data
             </button>
           </li>
           <li>
@@ -93,7 +93,7 @@ export default function Menu() {
               onClick={() => file.current.click()}
               className="block px-4 py-2 hover:bg-gray-100 text-left w-full"
             >
-              Import from file
+              Import data from file
             </button>
             <input
               type="file"

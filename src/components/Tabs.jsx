@@ -16,7 +16,7 @@ export default function Tabs() {
               : 'border-transparent hover:border-gray-300 hover:text-gray-600'
           } inline-block px-4 py-3 border-b-2 rounded-t-lg`}
         >
-          Show all
+          All content
         </button>
       </li>
       <li className="mr-2">
