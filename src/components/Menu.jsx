@@ -89,7 +89,7 @@ export default function Menu({ showModal }) {
               onClick={saveDataToJSON}
               className="block px-4 py-2 hover:bg-gray-100 text-left w-full"
             >
-              Export data
+              Save backup file
             </button>
           </li>
           <li>
@@ -97,7 +97,7 @@ export default function Menu({ showModal }) {
               onClick={() => file.current.click()}
               className="block px-4 py-2 hover:bg-gray-100 text-left w-full"
             >
-              Import data from file
+              Import from file
             </button>
             <input
               type="file"
