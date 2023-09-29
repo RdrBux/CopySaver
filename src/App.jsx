@@ -8,6 +8,7 @@ import Toggler from './components/Toggler';
 import { DataContext } from './context/data';
 import Modal from './components/Modal';
 import RemoveDataModal from './components/RemoveDataModal';
+import DataEmpty from './components/DataEmpty';
 
 function App() {
   const { allDataLength } = useContext(DataContext);
@@ -21,7 +22,7 @@ function App() {
     >
       <header className="flex items-center justify-between mb-1">
         <h1 className="text-2xl font-bold leading-none tracking-tight text-gray-900">
-          CopySaver
+          Copy Saver
         </h1>
         <div className="flex items-center gap-2">
           <Toggler />
@@ -35,7 +36,7 @@ function App() {
           <Search />
         </div>
 
-        <Table />
+        {allDataLength > 0 ? <Table /> : <DataEmpty />}
 
         <Pagination />
       </main>
