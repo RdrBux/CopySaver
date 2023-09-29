@@ -3,6 +3,7 @@ import { Hamburger } from './Icons';
 import { DataContext } from '../context/data';
 import { setNewData } from '../services/dataServices';
 import { formatISO } from 'date-fns';
+import StorageDisplay from './StorageDisplay';
 
 export default function Menu({ showModal }) {
   const { data } = useContext(DataContext);
@@ -61,8 +62,6 @@ export default function Menu({ showModal }) {
     setNewData(objectData);
   }
 
-  const space = 45;
-
   return (
     <div ref={menu}>
       <button
@@ -79,18 +78,7 @@ export default function Menu({ showModal }) {
         } z-10 absolute right-4 bg-white divide-y divide-gray-100 rounded-lg shadow-md w-44`}
       >
         <div className="p-4">
-          <div className="text-base font-medium text-blue-700 mb-1">
-            Storage used
-          </div>
-          <div className="w-full bg-gray-200 rounded-full">
-            <div
-              className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
-              style={{ width: `${space}%` }}
-            >
-              {' '}
-              {`${space}%`}
-            </div>
-          </div>
+          <StorageDisplay />
         </div>
         <ul
           className="py-2 text-sm text-gray-700"
