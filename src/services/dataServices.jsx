@@ -64,5 +64,9 @@ export function setNewData(newData) {
     };
   });
 
-  chrome.storage.local.set({ data: formattedData });
+  // Get data from storage
+  chrome.storage.local.get(['data'], function (result) {
+    // Add new data
+    chrome.storage.local.set({ data: result.data.concat(formattedData) });
+  });
 }
