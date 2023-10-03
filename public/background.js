@@ -7,6 +7,9 @@ chrome.runtime.onInstalled.addListener(() => {
     }
     // Update badge
     chrome.action.setBadgeText({ text: result.data.length.toString() ?? '0' });
+    chrome.action.setBadgeBackgroundColor({
+      color: '#111827',
+    });
   });
 
   // Get variable called active from db or create if it doesn't exists

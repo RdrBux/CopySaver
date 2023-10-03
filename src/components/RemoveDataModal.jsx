@@ -16,7 +16,7 @@ export default function RemoveDataModal({ hideModal }) {
         </p>
         <p className="mt-2">
           You can save a backup copy of your data from the menu before
-          continuing.
+          proceeding.
         </p>
       </div>
       <div className="flex justify-end gap-4 font-medium">
