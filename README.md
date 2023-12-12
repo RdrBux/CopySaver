@@ -1,8 +1,13 @@
-# React + Vite
+# Copy Saver
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+La extensión de Google Chrome que permite optimizar tu flujo de trabajo y nunca más perder textos copiados. Copy Saver administra el portapapeles con acciones rápidas e intuitivas.
 
-Currently, two official plugins are available:
+![Copy Saver Imagen](https://rdrbux.com.ar/copy-saver-home.a3a2d7cb.jpg)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Enlaces
+
+[Descripción del proyecto](https://rdrbux.com.ar/copy-saver.html)
+
+~Descarga~ (próximamente)
+
+> Aclaración: Se puede probar la demo de la extensión instalándola manualmente desde la carpeta **dist** de este repositorio.
